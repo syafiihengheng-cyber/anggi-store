@@ -1,0 +1,368 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anggi Store</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: white;
+            text-align: center;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            color: red;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        .produk-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .produk {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .produk img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .harga {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .btn-beli {
+            background: red;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-beli:hover {
+            background: darkred;
+        }
+
+        .keranjang {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .item-keranjang {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .jumlah button {
+            padding: 5px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .jumlah span {
+            font-weight: bold;
+            margin: 0 8px;
+        }
+
+        .total {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .checkout {
+            background: white;
+            margin-top: 20px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        input, textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .btn-checkout {
+            background: green;
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Anggi Store</h1>
+    <p>Selamat datang di toko kami!</p>
+</header>
+
+<div class="container">
+
+    <h2>🛍️ Produk Kami</h2>
+
+    <div class="produk-container">
+
+        <!-- SEPatu -->
+        <div class="produk">
+
+            <h2>👟 Sepatu Sneakers</h2>
+
+            <img src="sepatu2.jpg" alt="Sepatu Sneakers">
+
+            <p class="harga">Rp500.000</p>
+
+            <button class="btn-beli" onclick="tambahSepatu()">
+                Beli Sepatu
+            </button>
+
+        </div>
+
+
+        <!-- Kacamata -->
+        <div class="produk">
+
+            <h2>🕶️ Kacamata</h2>
+
+            <img src="kacamata.jpg" alt="Kacamata">
+
+            <p class="harga">Rp300.000</p>
+
+            <button class="btn-beli" onclick="tambahKacamata()">
+                Beli Kacamata
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- KERANJANG -->
+    <div class="keranjang">
+
+        <h2>🛒 Keranjang Belanja</h2>
+
+        <div id="keranjang">
+            Keranjang masih kosong
+        </div>
+
+        <div class="total" id="total">
+            Total: Rp0
+        </div>
+
+    </div>
+
+
+    <!-- CHECKOUT -->
+    <div class="checkout">
+
+        <h2>📦 Checkout</h2>
+
+        <label>Nama:</label>
+        <input type="text" id="nama" placeholder="Masukkan nama">
+
+        <label>Nomor HP:</label>
+        <input type="text" id="telepon" placeholder="Masukkan nomor HP">
+
+        <label>Alamat:</label>
+        <textarea id="alamat" rows="4"
+            placeholder="Masukkan alamat lengkap"></textarea>
+
+        <button class="btn-checkout" onclick="checkout()">
+            Checkout
+        </button>
+
+        <p id="hasilCheckout"></p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    let jumlahSepatu = 0;
+    let jumlahKacamata = 0;
+
+
+    function tambahSepatu() {
+        jumlahSepatu++;
+        tampilkanKeranjang();
+    }
+
+
+    function kurangSepatu() {
+
+        if (jumlahSepatu > 0) {
+            jumlahSepatu--;
+        }
+
+        tampilkanKeranjang();
+    }
+
+
+    function tambahKacamata() {
+        jumlahKacamata++;
+        tampilkanKeranjang();
+    }
+
+
+    function kurangKacamata() {
+
+        if (jumlahKacamata > 0) {
+            jumlahKacamata--;
+        }
+
+        tampilkanKeranjang();
+    }
+
+
+    function tampilkanKeranjang() {
+
+        let keranjang = "";
+        let total = 0;
+
+
+        if (jumlahSepatu > 0) {
+
+            keranjang += `
+                <div class="item-keranjang">
+                    👟 <b>Sepatu Sneakers</b><br>
+                    Harga: Rp500.000
+
+                    <div class="jumlah">
+
+                        <button onclick="kurangSepatu()">−</button>
+
+                        <span>${jumlahSepatu}</span>
+
+                        <button onclick="tambahSepatu()">+</button>
+
+                    </div>
+                </div>
+            `;
+
+            total += jumlahSepatu * 500000;
+        }
+
+
+        if (jumlahKacamata > 0) {
+
+            keranjang += `
+                <div class="item-keranjang">
+                    🕶️ <b>Kacamata</b><br>
+                    Harga: Rp300.000
+
+                    <div class="jumlah">
+
+                        <button onclick="kurangKacamata()">−</button>
+
+                        <span>${jumlahKacamata}</span>
+
+                        <button onclick="tambahKacamata()">+</button>
+
+                    </div>
+                </div>
+            `;
+
+            total += jumlahKacamata * 300000;
+        }
+
+
+        if (jumlahSepatu === 0 && jumlahKacamata === 0) {
+
+            keranjang = "Keranjang masih kosong";
+        }
+
+
+        document.getElementById("keranjang").innerHTML = keranjang;
+
+        document.getElementById("total").innerText =
+            "Total: Rp" + total.toLocaleString("id-ID");
+    }
+
+
+    function checkout() {
+
+        if (jumlahSepatu === 0 && jumlahKacamata === 0) {
+
+            alert("Keranjang masih kosong!");
+
+            return;
+        }
+
+
+        let nama = document.getElementById("nama").value;
+        let telepon = document.getElementById("telepon").value;
+        let alamat = document.getElementById("alamat").value;
+
+
+        if (nama === "" || telepon === "" || alamat === "") {
+
+            alert("Silakan isi nama, nomor HP, dan alamat!");
+
+            return;
+        }
+
+
+        let total =
+            (jumlahSepatu * 500000) +
+            (jumlahKacamata * 300000);
+
+
+        document.getElementById("hasilCheckout").innerHTML =
+            "<b>Pesanan berhasil dibuat!</b><br>" +
+            "Nama: " + nama + "<br>" +
+            "Total: Rp" + total.toLocaleString("id-ID");
+
+    }
+
+</script>
+
+</body>
+</html>
+```
