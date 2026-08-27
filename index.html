@@ -1,384 +1,1048 @@
-
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Anggi Store</title>
+<title>ANGGI STORE</title>
 
 <style>
-
-* {
-    box-sizing: border-box;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #111;
+html{
+  scroll-behavior:smooth;
 }
 
-/* HEADER */
-
-header {
-    background: #000;
-    color: white;
-    padding: 20px 7%;
+body{
+  background:#090706;
+  color:#eee5d8;
+  font-family:Arial,sans-serif;
 }
 
-.header {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    gap: 25px;
+:root{
+  --black:#090706;
+  --black2:#100c09;
+  --brown:#21150f;
+  --brown2:#2b1c13;
+  --gold:#c7a15a;
+  --gold-light:#e1c27b;
+  --muted:#988b7e;
 }
 
-.logo {
-    font-size: 27px;
-    font-weight: bold;
-    white-space: nowrap;
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+  text-align:center;
+  background:#050403;
+  color:var(--gold-light);
+  padding:9px;
+  font-size:9px;
+  letter-spacing:3px;
+  border-bottom:1px solid rgba(199,161,90,.2);
 }
 
-.search {
-    flex: 1;
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  background:var(--black);
+  border-bottom:1px solid rgba(199,161,90,.18);
+  padding:18px 5%;
 }
 
-.search input {
-    width: 100%;
-    padding: 13px 16px;
-    border: none;
-    border-radius: 7px;
-    font-size: 15px;
+.header{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
 }
 
-/* MENU */
-
-nav {
-    background: white;
-    border-bottom: 1px solid #ddd;
+.header-left,
+.header-right{
+  display:flex;
+  gap:25px;
 }
 
-nav div {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    gap: 30px;
-    padding: 15px 7%;
+.header-right{
+  justify-content:flex-end;
 }
 
-nav a {
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
+.header span{
+  color:#a99d91;
+  font-size:9px;
+  letter-spacing:2px;
+  cursor:pointer;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.header span:hover{
+  color:var(--gold-light);
 }
 
-/* CONTENT */
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 35px 7%;
+/* =========================
+   LOGO AS
+========================= */
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
 }
 
-.judul {
-    text-align: center;
-    margin-bottom: 35px;
+.logo svg{
+  width:55px;
+  height:55px;
 }
 
-.judul h1 {
-    margin-bottom: 10px;
+.logo-circle{
+  fill:none;
+  stroke:var(--gold);
+  stroke-width:1;
 }
 
-.judul p {
-    color: #555;
+.logo-text{
+  display:flex;
+  flex-direction:column;
 }
 
-/* KATEGORI */
-
-.kategori {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+.logo-name{
+  color:var(--gold-light);
+  font-family:Georgia,serif;
+  font-size:21px;
+  letter-spacing:5px;
 }
 
-.kategori button {
-    background: white;
-    border: 1px solid #111;
-    padding: 9px 18px;
-    border-radius: 20px;
-    cursor: pointer;
+.logo-sub{
+  color:#756b61;
+  font-size:6px;
+  letter-spacing:3px;
+  margin-top:5px;
 }
 
-.kategori button:hover {
-    background: #000;
-    color: white;
+
+/* =========================
+   NAV
+========================= */
+
+nav{
+  background:#090706;
+  border-bottom:1px solid rgba(199,161,90,.12);
 }
 
-/* PRODUK */
-
-.produk-container {
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+.nav{
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  padding:14px;
+  flex-wrap:wrap;
 }
 
-.produk {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.2s;
+.nav a{
+  color:#aaa096;
+  text-decoration:none;
+  font-size:9px;
+  letter-spacing:2px;
+  cursor:pointer;
 }
 
-.produk:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 8px 20px rgba(0,0,0,0.12);
+.nav a:hover{
+  color:var(--gold-light);
 }
 
-.produk img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    display: block;
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:600px;
+  max-width:1400px;
+  margin:auto;
+  padding:70px 6%;
+  display:flex;
+  align-items:flex-end;
+  position:relative;
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 35%,
+      #60442d 0%,
+      #342217 35%,
+      #0b0806 78%
+    );
 }
 
-.produk-info {
-    padding: 18px;
+.hero-content{
+  max-width:600px;
 }
 
-.produk h3 {
-    margin: 0 0 7px;
+.hero-small{
+  color:var(--gold-light);
+  font-size:9px;
+  letter-spacing:4px;
+  margin-bottom:18px;
 }
 
-.kategori-nama {
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 10px;
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:62px;
+  font-weight:normal;
+  line-height:1.05;
+  margin-bottom:20px;
 }
 
-.harga {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
+.hero p{
+  max-width:480px;
+  color:#b1a499;
+  font-size:13px;
+  line-height:1.9;
 }
 
-.btn {
-    width: 100%;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    background: #000;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
+.hero button{
+  margin-top:25px;
+  padding:14px 28px;
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold-light);
+  cursor:pointer;
+  font-size:9px;
+  letter-spacing:2px;
 }
 
-.btn:hover {
-    background: #333;
+.hero button:hover{
+  background:var(--gold);
+  color:#090706;
 }
 
-/* KERANJANG */
 
-#keranjangSection {
-    margin-top: 45px;
-    background: white;
-    padding: 25px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+  max-width:1400px;
+  margin:auto;
+  padding:80px 5%;
 }
 
-.item {
-    padding: 15px 0;
-    border-bottom: 1px solid #ddd;
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+  text-align:center;
+  margin-bottom:45px;
 }
 
-.jumlah {
-    margin-top: 10px;
+.section-title small{
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:4px;
 }
 
-.jumlah button {
-    padding: 5px 13px;
-    margin: 3px;
-    border: 1px solid #000;
-    background: white;
-    color: #000;
-    border-radius: 4px;
-    cursor: pointer;
+.section-title h2{
+  font-family:Georgia,serif;
+  font-size:42px;
+  font-weight:normal;
+  margin:12px 0;
 }
 
-.jumlah button:hover {
-    background: #000;
-    color: white;
+.section-title p{
+  color:var(--muted);
+  font-size:12px;
 }
 
-.jumlah span {
-    font-weight: bold;
-    margin: 0 8px;
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
 }
 
-.total {
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 20px;
+.product{
+  background:var(--brown);
+  border:1px solid rgba(199,161,90,.12);
+  overflow:hidden;
+  transition:.3s;
 }
 
-/* CHECKOUT */
-
-.checkout {
-    background: white;
-    margin-top: 25px;
-    padding: 25px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
+.product:hover{
+  transform:translateY(-5px);
+  border-color:rgba(199,161,90,.4);
 }
 
-.checkout input,
-.checkout textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 15px;
+.product-image{
+  height:400px;
+  background:#18100c;
+  overflow:hidden;
+  cursor:pointer;
 }
 
-.btn-checkout {
-    width: 100%;
-    background: #000;
-    color: white;
-    border: none;
-    padding: 13px;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:.5s;
 }
 
-/* MODAL */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.75);
+.product:hover img{
+  transform:scale(1.04);
 }
 
-.modal-content {
-    background: white;
-    color: #111;
-    width: 90%;
-    max-width: 600px;
-    margin: 8% auto;
-    padding: 35px;
-    border-radius: 12px;
-    position: relative;
+.product-info{
+  padding:20px;
 }
 
-.close {
-    position: absolute;
-    right: 20px;
-    top: 12px;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
+.category{
+  color:var(--gold);
+  font-size:8px;
+  letter-spacing:2px;
+  margin-bottom:9px;
 }
 
-.about-title {
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+.product h3{
+  font-family:Georgia,serif;
+  font-weight:normal;
+  font-size:19px;
+  margin-bottom:10px;
 }
 
-.about-box {
-    line-height: 1.7;
+.price{
+  color:var(--gold-light);
+  font-size:14px;
+  margin-bottom:8px;
 }
 
-.about-item {
-    border-top: 1px solid #ddd;
-    padding: 12px 0;
+.stock{
+  color:#91857a;
+  font-size:10px;
+  margin-bottom:16px;
 }
 
-/* FOOTER */
-
-footer {
-    margin-top: 50px;
-    background: #000;
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
+.stock strong{
+  color:var(--gold-light);
 }
 
-/* HP */
+.product button{
+  width:100%;
+  padding:11px;
+  border:1px solid rgba(199,161,90,.5);
+  background:var(--gold);
+  color:#090706;
+  cursor:pointer;
+  font-size:8px;
+  letter-spacing:2px;
+}
 
-@media (max-width: 600px) {
+.product button:hover{
+  background:var(--gold-light);
+}
 
-    .header {
-        flex-direction: column;
-        align-items: stretch;
-    }
 
-    .logo {
-        text-align: center;
-    }
+/* =========================
+   DETAIL MODAL
+========================= */
 
-    nav div {
-        justify-content: center;
-        gap: 18px;
-    }
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.82);
+  z-index:9999;
+  padding:30px;
+  overflow-y:auto;
+}
 
-    .container {
-        padding: 25px 15px;
-    }
+.modal.active{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 
-    .produk img {
-        height: 250px;
-    }
+.modal-box{
+  width:100%;
+  max-width:1000px;
+  background:#160f0b;
+  border:1px solid rgba(199,161,90,.35);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+}
+
+.modal-image{
+  min-height:600px;
+  background:#100b08;
+}
+
+.modal-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.modal-info{
+  padding:55px 45px;
+}
+
+.modal-category{
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:3px;
+  margin-bottom:15px;
+}
+
+.modal-info h2{
+  font-family:Georgia,serif;
+  font-weight:normal;
+  font-size:38px;
+  margin-bottom:15px;
+}
+
+.modal-price{
+  color:var(--gold-light);
+  font-size:20px;
+  margin-bottom:20px;
+}
+
+.modal-description{
+  color:#9e9185;
+  font-size:12px;
+  line-height:1.9;
+  margin-bottom:25px;
+}
+
+.modal-label{
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:2px;
+  margin:20px 0 10px;
+}
+
+.option-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.option{
+  padding:10px 15px;
+  border:1px solid rgba(199,161,90,.3);
+  background:transparent;
+  color:#c5b8aa;
+  cursor:pointer;
+  font-size:10px;
+}
+
+.option:hover,
+.option.selected{
+  background:var(--gold);
+  color:#090706;
+}
+
+.detail-stock{
+  color:#91857a;
+  font-size:10px;
+  margin-top:20px;
+}
+
+.detail-stock strong{
+  color:var(--gold-light);
+}
+
+.detail-add{
+  width:100%;
+  margin-top:25px;
+  padding:15px;
+  border:0;
+  background:var(--gold);
+  color:#090706;
+  font-weight:bold;
+  letter-spacing:2px;
+  cursor:pointer;
+}
+
+.close-modal{
+  position:absolute;
+  top:15px;
+  right:18px;
+  color:var(--gold-light);
+  font-size:25px;
+  cursor:pointer;
+  z-index:5;
+}
+
+
+/* =========================
+   FEATURE
+========================= */
+
+.feature{
+  margin-top:90px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:450px;
+}
+
+.feature-left{
+  background:var(--brown2);
+  padding:70px;
+  display:flex;
+  align-items:center;
+}
+
+.feature-left h2{
+  font-family:Georgia,serif;
+  font-weight:normal;
+  font-size:45px;
+  line-height:1.1;
+  margin:15px 0;
+}
+
+.feature-left p{
+  max-width:450px;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:13px;
+}
+
+.feature-right{
+  background:
+    radial-gradient(
+      circle at 45% 40%,
+      #67492f,
+      #2c1c13 45%,
+      #080605 100%
+    );
+}
+
+
+/* =========================
+   SHOPPING BAG
+========================= */
+
+.cart{
+  margin-top:80px;
+  background:var(--brown);
+  padding:35px;
+  border-top:1px solid rgba(199,161,90,.2);
+  border-bottom:1px solid rgba(199,161,90,.2);
+}
+
+.cart h2{
+  font-family:Georgia,serif;
+  font-weight:normal;
+  color:var(--gold-light);
+  margin-bottom:25px;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:20px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.cart-name{
+  font-family:Georgia,serif;
+  font-size:17px;
+}
+
+.cart-info{
+  color:#93877c;
+  font-size:10px;
+  margin-top:5px;
+}
+
+.cart-controls{
+  display:flex;
+  align-items:center;
+}
+
+.cart-controls button{
+  width:30px;
+  height:30px;
+  border:1px solid rgba(199,161,90,.5);
+  background:transparent;
+  color:var(--gold-light);
+  cursor:pointer;
+}
+
+.cart-controls span{
+  margin:0 10px;
+}
+
+.remove{
+  margin-left:15px;
+  color:#a78c72;
+  font-size:9px;
+  cursor:pointer;
+  letter-spacing:1px;
+}
+
+.total{
+  text-align:right;
+  color:var(--gold-light);
+  font-family:Georgia,serif;
+  font-size:24px;
+  margin-top:25px;
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+.checkout{
+  margin-top:60px;
+  background:#130e0b;
+  border:1px solid rgba(199,161,90,.2);
+  padding:45px;
+}
+
+.checkout-header{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.checkout-header small{
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:4px;
+}
+
+.checkout-header h2{
+  font-family:Georgia,serif;
+  font-weight:normal;
+  font-size:40px;
+  margin-top:12px;
+}
+
+.checkout-header p{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:10px;
+}
+
+.checkout-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+}
+
+.checkout-box{
+  background:#1b120d;
+  padding:30px;
+  border:1px solid rgba(199,161,90,.12);
+}
+
+.checkout-box h3{
+  font-family:Georgia,serif;
+  font-weight:normal;
+  font-size:22px;
+  margin-bottom:25px;
+  color:var(--gold-light);
+}
+
+.checkout label{
+  display:block;
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:2px;
+  margin-top:18px;
+}
+
+.checkout input[type="text"],
+.checkout textarea{
+  width:100%;
+  margin-top:8px;
+  padding:13px;
+  background:#0d0907;
+  border:1px solid rgba(199,161,90,.25);
+  color:white;
+  outline:none;
+}
+
+.checkout input:focus,
+.checkout textarea:focus{
+  border-color:var(--gold);
+}
+
+
+/* =========================
+   PAYMENT
+========================= */
+
+.payment-option{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:17px;
+  margin-bottom:10px;
+  border:1px solid rgba(199,161,90,.2);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.payment-option:hover{
+  border-color:var(--gold);
+}
+
+.payment-option input{
+  width:auto !important;
+  margin:0 !important;
+  accent-color:#c7a15a;
+}
+
+.payment-name{
+  color:#e2d6c8;
+  font-size:12px;
+}
+
+.payment-desc{
+  color:#796f66;
+  font-size:9px;
+  margin-top:4px;
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary{
+  margin-top:25px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  color:#9d9185;
+  font-size:11px;
+}
+
+.summary-total{
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+  color:var(--gold-light);
+  font-family:Georgia,serif;
+  font-size:22px;
+}
+
+.checkout-button{
+  width:100%;
+  margin-top:30px;
+  padding:17px;
+  background:var(--gold);
+  border:0;
+  color:#090706;
+  font-weight:bold;
+  letter-spacing:2px;
+  cursor:pointer;
+}
+
+.checkout-button:hover{
+  background:var(--gold-light);
+}
+
+
+/* =========================
+   ORDER SUCCESS
+========================= */
+
+.order-success{
+  display:none;
+  margin-top:25px;
+  padding:25px;
+  text-align:center;
+  background:#1b120d;
+  border:1px solid rgba(199,161,90,.35);
+}
+
+.order-success.active{
+  display:block;
+}
+
+.order-success small{
+  color:var(--gold);
+  letter-spacing:3px;
+}
+
+.order-success h3{
+  color:var(--gold-light);
+  font-family:Georgia,serif;
+  font-size:28px;
+  margin:10px 0;
+}
+
+.order-success p{
+  color:#9d9185;
+  font-size:11px;
+  line-height:1.8;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+  max-width:750px;
+  margin:100px auto;
+  text-align:center;
+}
+
+.about small{
+  color:var(--gold);
+  letter-spacing:4px;
+  font-size:9px;
+}
+
+.about h2{
+  font-family:Georgia,serif;
+  font-size:42px;
+  font-weight:normal;
+  margin:15px 0;
+}
+
+.about p{
+  color:var(--muted);
+  line-height:1.9;
+  font-size:13px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#050403;
+  text-align:center;
+  padding:60px 20px;
+  border-top:1px solid rgba(199,161,90,.18);
+}
+
+.footer-logo{
+  color:var(--gold-light);
+  font-family:Georgia,serif;
+  font-size:20px;
+  letter-spacing:5px;
+  margin-bottom:15px;
+}
+
+footer p{
+  color:#655d55;
+  font-size:8px;
+  letter-spacing:2px;
+  margin:6px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:950px){
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .feature{
+    grid-template-columns:1fr;
+  }
+
+  .modal-box{
+    grid-template-columns:1fr;
+  }
+
+  .modal-image{
+    min-height:400px;
+  }
+
+  .checkout-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+@media(max-width:600px){
+
+  .header{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .header-left,
+  .header-right{
+    justify-content:center;
+  }
+
+  .hero{
+    min-height:520px;
+    padding:40px 22px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .product-image{
+    height:430px;
+  }
+
+  .feature-left{
+    padding:40px 25px;
+  }
+
+  .cart-item{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .checkout{
+    padding:20px;
+  }
+
+  .checkout-box{
+    padding:20px;
+  }
+
+  .modal{
+    padding:10px;
+  }
+
+  .modal-info{
+    padding:35px 25px;
+  }
 
 }
 
 </style>
-
 </head>
+
 
 <body>
 
-<!-- HEADER -->
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<div class="topbar">
+ANGGI STORE • PRIVATE COLLECTION • 2026
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
 <div class="header">
 
-<div class="logo">
-Anggi Store
+<div class="header-left">
+
+<span onclick="keProduk()">SHOP</span>
+
+<span onclick="keProduk()">COLLECTION</span>
+
 </div>
 
-<div class="search">
 
-<input
-type="text"
-id="search"
-placeholder="Cari produk..."
-onkeyup="cariProduk()">
+<div class="logo" onclick="keHome()">
+
+<svg viewBox="0 0 100 100">
+
+<circle
+class="logo-circle"
+cx="50"
+cy="50"
+r="43">
+</circle>
+
+<path
+d="M25 68 L50 20 L75 68"
+fill="none"
+stroke="#c7a15a"
+stroke-width="1"
+opacity=".5">
+</path>
+
+<path
+d="M32 69 L68 69"
+fill="none"
+stroke="#c7a15a"
+stroke-width="1"
+opacity=".5">
+</path>
+
+<text
+x="50"
+y="62"
+text-anchor="middle"
+fill="#e1c27b"
+font-family="Georgia"
+font-size="27">
+AS
+</text>
+
+</svg>
+
+
+<div class="logo-text">
+
+<div class="logo-name">
+ANGGI
+</div>
+
+<div class="logo-sub">
+LUXURY STORE
+</div>
+
+</div>
+
+</div>
+
+
+<div class="header-right">
+
+<span onclick="keKeranjang()">♡</span>
+
+<span onclick="keKeranjang()">🛒</span>
 
 </div>
 
@@ -387,111 +1051,163 @@ onkeyup="cariProduk()">
 </header>
 
 
-<!-- MENU -->
+<!-- =========================
+     NAV
+========================= -->
 
 <nav>
 
-<div>
+<div class="nav">
 
-<a onclick="keBeranda()">Beranda</a>
+<a onclick="keHome()">HOME</a>
 
-<a onclick="keProduk()">Produk</a>
+<a onclick="keProduk()">SHOP</a>
 
-<a onclick="bukaTentang()">Tentang</a>
+<a onclick="filterProduk('baju')">BAJU</a>
 
-<a onclick="keKeranjang()">Keranjang</a>
+<a onclick="filterProduk('sepatu')">SEPATU</a>
+
+<a onclick="filterProduk('hoodie')">HOODIE</a>
+
+<a onclick="filterProduk('kacamata')">KACAMATA</a>
+
+<a onclick="keKeranjang()">SHOPPING BAG</a>
 
 </div>
 
 </nav>
 
 
-<div class="container">
+<!-- =========================
+     HERO
+========================= -->
 
+<section class="hero" id="home">
 
-<!-- JUDUL -->
+<div class="hero-content">
 
-<div class="judul">
+<div class="hero-small">
+ANGGI STORE / 2026
+</div>
 
 <h1>
-Anggi Store
+The Art of<br>
+Luxury Style.
 </h1>
 
 <p>
-Temukan produk pilihan terbaik untuk kamu.
+Koleksi fashion pilihan Anggi Store
+dengan karakter elegan, modern
+dan timeless.
+</p>
+
+<button onclick="keProduk()">
+DISCOVER COLLECTION
+</button>
+
+</div>
+
+</section>
+
+
+<div class="container">
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section id="produk">
+
+<div class="section-title">
+
+<small>ANGGI STORE</small>
+
+<h2>The Collection</h2>
+
+<p>
+Selected pieces for your everyday luxury.
 </p>
 
 </div>
 
 
-<!-- KATEGORI -->
+<div class="products">
 
-<div class="kategori">
 
-<button onclick="filterProduk('semua')">
-Semua
-</button>
+<!-- BAJU -->
 
-<button onclick="filterProduk('sepatu')">
-Sepatu
-</button>
+<div class="product" data-kategori="baju">
 
-<button onclick="filterProduk('kacamata')">
-Kacamata
-</button>
+<div
+class="product-image"
+onclick="bukaDetail('baju')">
 
-<button onclick="filterProduk('baju')">
-Baju
-</button>
-
-<button onclick="filterProduk('hoodie')">
-Hoodie
-</button>
+<img src="baju.jpg">
 
 </div>
 
+<div class="product-info">
 
-<!-- PRODUK -->
-
-<div
-class="produk-container"
-id="produkContainer">
-
-
-<!-- SEPATU 1 -->
-
-<div
-class="produk"
-data-nama="Sepatu Sneakers Classic"
-data-kategori="sepatu">
-
-<img
-src="sepatu2.jpg"
-alt="Sepatu Sneakers Classic">
-
-<div class="produk-info">
-
-<div class="kategori-nama">
-SEPATU
+<div class="category">
+ANGGI / CLOTHING
 </div>
 
 <h3>
-Sepatu Sneakers Classic
+Baju Premium
 </h3>
 
-<div class="harga">
+<div class="price">
+Rp250.000
+</div>
+
+<div class="stock">
+Stok:
+<strong id="stock-baju">10</strong>
+</div>
+
+<button onclick="bukaDetail('baju')">
+VIEW PRODUCT
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SEPATU -->
+
+<div class="product" data-kategori="sepatu">
+
+<div
+class="product-image"
+onclick="bukaDetail('sepatu')">
+
+<img src="sepatu.jpg">
+
+</div>
+
+<div class="product-info">
+
+<div class="category">
+ANGGI / FOOTWEAR
+</div>
+
+<h3>
+Sepatu Premium
+</h3>
+
+<div class="price">
 Rp500.000
 </div>
 
-<button
-class="btn"
-onclick="tambahProduk(
-'Sepatu Sneakers Classic',
-500000
-)">
+<div class="stock">
+Stok:
+<strong id="stock-sepatu">10</strong>
+</div>
 
-Tambah ke Keranjang
-
+<button onclick="bukaDetail('sepatu')">
+VIEW PRODUCT
 </button>
 
 </div>
@@ -499,81 +1215,39 @@ Tambah ke Keranjang
 </div>
 
 
-<!-- SEPATU 2 -->
+<!-- HOODIE -->
+
+<div class="product" data-kategori="hoodie">
 
 <div
-class="produk"
-data-nama="Sepatu Urban Black"
-data-kategori="sepatu">
+class="product-image"
+onclick="bukaDetail('hoodie')">
 
-<img
-src="sepatu3.jpg"
-alt="Sepatu Urban Black">
+<img src="hoodie.jpg">
 
-<div class="produk-info">
+</div>
 
-<div class="kategori-nama">
-SEPATU
+<div class="product-info">
+
+<div class="category">
+ANGGI / OUTERWEAR
 </div>
 
 <h3>
-Sepatu Urban Black
+Hoodie Premium
 </h3>
 
-<div class="harga">
-Rp650.000
+<div class="price">
+Rp400.000
 </div>
 
-<button
-class="btn"
-onclick="tambahProduk(
-'Sepatu Urban Black',
-650000
-)">
-
-Tambah ke Keranjang
-
-</button>
-
+<div class="stock">
+Stok:
+<strong id="stock-hoodie">10</strong>
 </div>
 
-</div>
-
-
-<!-- SEPATU 3 -->
-
-<div
-class="produk"
-data-nama="Sepatu Street Premium"
-data-kategori="sepatu">
-
-<img
-src="sepatu4.jpg"
-alt="Sepatu Street Premium">
-
-<div class="produk-info">
-
-<div class="kategori-nama">
-SEPATU
-</div>
-
-<h3>
-Sepatu Street Premium
-</h3>
-
-<div class="harga">
-Rp750.000
-</div>
-
-<button
-class="btn"
-onclick="tambahProduk(
-'Sepatu Street Premium',
-750000
-)">
-
-Tambah ke Keranjang
-
+<button onclick="bukaDetail('hoodie')">
+VIEW PRODUCT
 </button>
 
 </div>
@@ -583,284 +1257,37 @@ Tambah ke Keranjang
 
 <!-- KACAMATA -->
 
+<div class="product" data-kategori="kacamata">
+
 <div
-class="produk"
-data-nama="Kacamata Classic"
-data-kategori="kacamata">
+class="product-image"
+onclick="bukaDetail('kacamata')">
 
-<img
-src="kacamata.jpg"
-alt="Kacamata Classic">
+<img src="kacamata.jpg">
 
-<div class="produk-info">
+</div>
 
-<div class="kategori-nama">
-KACAMATA
+<div class="product-info">
+
+<div class="category">
+ANGGI / ACCESSORIES
 </div>
 
 <h3>
-Kacamata Classic
+Kacamata Premium
 </h3>
 
-<div class="harga">
+<div class="price">
 Rp300.000
 </div>
 
-<button
-class="btn"
-onclick="tambahProduk(
-'Kacamata Classic',
-300000
-)">
-
-Tambah ke Keranjang
-
-</button>
-
+<div class="stock">
+Stok:
+<strong id="stock-kacamata">10</strong>
 </div>
 
-</div>
-
-
-<!-- BAJU 1 -->
-
-<div
-class="produk"
-data-nama="Baju Basic Black"
-data-kategori="baju">
-
-<img
-src="baju1.jpg"
-alt="Baju Basic Black">
-
-<div class="produk-info">
-
-<div class="kategori-nama">
-BAJU
-</div>
-
-<h3>
-Baju Basic Black
-</h3>
-
-<div class="harga">
-Rp180.000
-</div>
-
-<button
-class="btn"
-onclick="tambahProduk(
-'Baju Basic Black',
-180000
-)">
-
-Tambah ke Keranjang
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- BAJU 2 -->
-
-<div
-class="produk"
-data-nama="Baju Oversize White"
-data-kategori="baju">
-
-<img
-src="baju2.jpg"
-alt="Baju Oversize White">
-
-<div class="produk-info">
-
-<div class="kategori-nama">
-BAJU
-</div>
-
-<h3>
-Baju Oversize White
-</h3>
-
-<div class="harga">
-Rp220.000
-</div>
-
-<button
-class="btn"
-onclick="tambahProduk(
-'Baju Oversize White',
-220000
-)">
-
-Tambah ke Keranjang
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- BAJU 3 -->
-
-<div
-class="produk"
-data-nama="Baju Premium Cotton"
-data-kategori="baju">
-
-<img
-src="baju3.jpg"
-alt="Baju Premium Cotton">
-
-<div class="produk-info">
-
-<div class="kategori-nama">
-BAJU
-</div>
-
-<h3>
-Baju Premium Cotton
-</h3>
-
-<div class="harga">
-Rp250.000
-</div>
-
-<button
-class="btn"
-onclick="tambahProduk(
-'Baju Premium Cotton',
-250000
-)">
-
-Tambah ke Keranjang
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- HOODIE 1 -->
-
-<div
-class="produk"
-data-nama="Hoodie Black Classic"
-data-kategori="hoodie">
-
-<img
-src="hoodie1.jpg"
-alt="Hoodie Black Classic">
-
-<div class="produk-info">
-
-<div class="kategori-nama">
-HOODIE
-</div>
-
-<h3>
-Hoodie Black Classic
-</h3>
-
-<div class="harga">
-Rp350.000
-</div>
-
-<button
-class="btn"
-onclick="tambahProduk(
-'Hoodie Black Classic',
-350000
-)">
-
-Tambah ke Keranjang
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- HOODIE 2 -->
-
-<div
-class="produk"
-data-nama="Hoodie Street"
-data-kategori="hoodie">
-
-<img
-src="hoodie2.jpg"
-alt="Hoodie Street">
-
-<div class="produk-info">
-
-<div class="kategori-nama">
-HOODIE
-</div>
-
-<h3>
-Hoodie Street
-</h3>
-
-<div class="harga">
-Rp400.000
-</div>
-
-<button
-class="btn"
-onclick="tambahProduk(
-'Hoodie Street',
-400000
-)">
-
-Tambah ke Keranjang
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- HOODIE 3 -->
-
-<div
-class="produk"
-data-nama="Hoodie Premium"
-data-kategori="hoodie">
-
-<img
-src="hoodie3.jpg"
-alt="Hoodie Premium">
-
-<div class="produk-info">
-
-<div class="kategori-nama">
-HOODIE
-</div>
-
-<h3>
-Hoodie Premium
-</h3>
-
-<div class="harga">
-Rp450.000
-</div>
-
-<button
-class="btn"
-onclick="tambahProduk(
-'Hoodie Premium',
-450000
-)">
-
-Tambah ke Keranjang
-
+<button onclick="bukaDetail('kacamata')">
+VIEW PRODUCT
 </button>
 
 </div>
@@ -870,323 +1297,1096 @@ Tambah ke Keranjang
 
 </div>
 
+</section>
 
-<!-- KERANJANG -->
 
-<div id="keranjangSection">
+<!-- =========================
+     FEATURE
+========================= -->
+
+<section class="feature">
+
+<div class="feature-left">
+
+<div>
+
+<div class="category">
+ANGGI STORE
+</div>
 
 <h2>
-🛒 Keranjang Belanja
+Elegance<br>
+never fades.
 </h2>
 
-<div id="keranjang">
-
-Keranjang masih kosong
+<p>
+Gaya yang baik tidak perlu berlebihan.
+Anggi Store menghadirkan fashion
+dengan karakter sederhana,
+elegan dan timeless.
+</p>
 
 </div>
 
-<div
-class="total"
-id="total">
+</div>
 
+<div class="feature-right"></div>
+
+</section>
+
+
+<!-- =========================
+     SHOPPING BAG
+========================= -->
+
+<section class="cart" id="keranjang">
+
+<h2>
+Shopping Bag
+</h2>
+
+<div id="isiKeranjang">
+Your bag is empty.
+</div>
+
+<div class="total" id="total">
 Total: Rp0
+</div>
+
+</section>
+
+
+<!-- =========================
+     CHECKOUT
+========================= -->
+
+<section class="checkout" id="checkout">
+
+
+<div class="checkout-header">
+
+<small>ANGGI STORE</small>
+
+<h2>Checkout</h2>
+
+<p>
+Complete your order before continuing to WhatsApp.
+</p>
 
 </div>
 
-</div>
+
+<div class="checkout-grid">
 
 
-<!-- CHECKOUT -->
+<!-- DATA PEMBELI -->
 
-<div class="checkout">
+<div class="checkout-box">
 
-<h2>
-📦 Checkout
-</h2>
+<h3>
+Customer Information
+</h3>
+
 
 <label>
-Nama
+NAMA LENGKAP
 </label>
 
 <input
-type="text"
 id="nama"
+type="text"
 placeholder="Nama lengkap">
 
 
 <label>
-Nomor HP
+NOMOR HP
 </label>
 
 <input
-type="text"
 id="telepon"
-placeholder="Nomor HP">
+type="text"
+placeholder="08xxxxxxxxxx">
 
 
 <label>
-Alamat
+ALAMAT PENGIRIMAN
 </label>
 
 <textarea
 id="alamat"
-rows="4"
-placeholder="Alamat lengkap"></textarea>
+rows="5"
+placeholder="Alamat lengkap untuk pengiriman">
+</textarea>
+
+
+<label>
+CATATAN PESANAN
+</label>
+
+<textarea
+id="catatan"
+rows="3"
+placeholder="Contoh: Tolong packing dengan rapi">
+</textarea>
+
+</div>
+
+
+<!-- PEMBAYARAN -->
+
+<div class="checkout-box">
+
+<h3>
+Payment Method
+</h3>
+
+
+<label>
+PILIH METODE PEMBAYARAN
+</label>
+
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="Transfer Bank">
+
+<div>
+
+<div class="payment-name">
+Transfer Bank
+</div>
+
+<div class="payment-desc">
+Konfirmasi pembayaran melalui WhatsApp.
+</div>
+
+</div>
+
+</label>
+
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="QRIS">
+
+<div>
+
+<div class="payment-name">
+QRIS
+</div>
+
+<div class="payment-desc">
+Scan QRIS setelah mendapatkan konfirmasi.
+</div>
+
+</div>
+
+</label>
+
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="COD">
+
+<div>
+
+<div class="payment-name">
+COD
+</div>
+
+<div class="payment-desc">
+Bayar saat pesanan diterima, jika tersedia.
+</div>
+
+</div>
+
+</label>
+
+
+<div class="summary">
+
+<h3>
+Order Summary
+</h3>
+
+<div id="checkoutSummary">
+Belum ada produk.
+</div>
+
+</div>
 
 
 <button
-class="btn-checkout"
+class="checkout-button"
 onclick="checkout()">
 
-Checkout
+CONFIRM ORDER VIA WHATSAPP
 
 </button>
 
-<p id="hasilCheckout"></p>
-
-</div>
-
-
-</div>
-
-
-<!-- MODAL TENTANG -->
 
 <div
-id="modalTentang"
-class="modal">
+class="order-success"
+id="orderSuccess">
 
-<div class="modal-content">
+<small>
+ORDER CREATED
+</small>
 
-<span
-class="close"
-onclick="tutupTentang()">
+<h3 id="successOrderNumber">
+ANGGI-00000000-001
+</h3>
 
-×
+<p>
+Nomor order berhasil dibuat.<br>
+Silakan lanjutkan konfirmasi melalui WhatsApp.
+</p>
 
-</span>
+</div>
 
 
-<div class="about-title">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about">
+
+<small>
+ABOUT ANGGI STORE
+</small>
 
 <h2>
-ANGGI STORE
+Less.<br>
+Better.<br>
+Timeless.
 </h2>
 
 <p>
-Online Store
+Anggi Store menghadirkan fashion
+pilihan dengan pendekatan minimalis
+dan elegan.
 </p>
 
-</div>
+</section>
 
-
-<div class="about-box">
-
-<p>
-<b>Tentang Kami</b>
-</p>
-
-<p>
-
-Anggi Store menyediakan berbagai
-produk pilihan seperti sepatu,
-kacamata, baju dan hoodie.
-
-</p>
-
-<div class="about-item">
-🛍️ Produk pilihan
-</div>
-
-<div class="about-item">
-🚚 Mudah dan praktis
-</div>
-
-<div class="about-item">
-🔒 Belanja dengan nyaman
-</div>
-
-<div class="about-item">
-💬 Pelayanan pelanggan
-</div>
-
-<p>
-
-Terima kasih telah mengunjungi
-<b>Anggi Store</b>.
-
-</p>
-
-</div>
-
-</div>
 
 </div>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
+<div class="footer-logo">
+AS • ANGGI STORE
+</div>
+
 <p>
-© 2026 Anggi Store
+LUXURY FASHION • LIFESTYLE
 </p>
 
 <p>
-Online Store
+© 2026 ANGGI STORE
 </p>
 
 </footer>
 
 
+<!-- =========================
+     DETAIL MODAL
+========================= -->
+
+<div
+class="modal"
+id="productModal">
+
+<div class="modal-box">
+
+<div
+class="close-modal"
+onclick="tutupDetail()">
+×
+</div>
+
+
+<div class="modal-image">
+
+<img
+id="detailImage"
+src="">
+
+</div>
+
+
+<div class="modal-info">
+
+<div
+class="modal-category"
+id="detailCategory">
+ANGGI
+</div>
+
+<h2 id="detailName">
+Produk
+</h2>
+
+<div
+class="modal-price"
+id="detailPrice">
+Rp0
+</div>
+
+<div
+class="modal-description"
+id="detailDescription">
+Deskripsi produk.
+</div>
+
+
+<div class="modal-label">
+PILIH UKURAN
+</div>
+
+<div
+class="option-list"
+id="ukuranList">
+</div>
+
+
+<div class="modal-label">
+PILIH WARNA
+</div>
+
+<div
+class="option-list"
+id="warnaList">
+</div>
+
+
+<div class="detail-stock">
+
+STOK:
+<strong id="detailStock">
+0
+</strong>
+
+</div>
+
+
+<button
+class="detail-add"
+onclick="tambahDariDetail()">
+
+ADD TO BAG
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
 <script>
 
 
-/* DATA KERANJANG */
+/* =========================
+   NOMOR WHATSAPP
+========================= */
 
-let keranjangData = [];
+const nomorWhatsApp =
+"6287896581620";
 
 
-/* TAMBAH PRODUK */
+/* =========================
+   DATA PRODUK
+========================= */
 
-function tambahProduk(nama, harga) {
+const produk={
 
-let produk =
-keranjangData.find(
-item => item.nama === nama
+baju:{
+
+nama:"Baju Premium",
+
+harga:250000,
+
+gambar:"baju.jpg",
+
+kategori:"ANGGI / CLOTHING",
+
+deskripsi:
+"Baju premium dengan desain elegan dan nyaman digunakan untuk berbagai kesempatan.",
+
+ukuran:["S","M","L","XL"],
+
+warna:["Hitam","Putih","Cokelat"],
+
+stok:10
+
+},
+
+
+sepatu:{
+
+nama:"Sepatu Premium",
+
+harga:500000,
+
+gambar:"sepatu.jpg",
+
+kategori:"ANGGI / FOOTWEAR",
+
+deskripsi:
+"Sepatu premium dengan tampilan modern dan elegan untuk melengkapi gaya sehari-hari.",
+
+ukuran:["39","40","41","42","43"],
+
+warna:["Hitam","Cokelat"],
+
+stok:10
+
+},
+
+
+hoodie:{
+
+nama:"Hoodie Premium",
+
+harga:400000,
+
+gambar:"hoodie.jpg",
+
+kategori:"ANGGI / OUTERWEAR",
+
+deskripsi:
+"Hoodie premium dengan karakter minimalis, nyaman dan cocok dipadukan dengan berbagai outfit.",
+
+ukuran:["S","M","L","XL"],
+
+warna:["Hitam","Cokelat","Cream"],
+
+stok:10
+
+},
+
+
+kacamata:{
+
+nama:"Kacamata Premium",
+
+harga:300000,
+
+gambar:"kacamata.jpg",
+
+kategori:"ANGGI / ACCESSORIES",
+
+deskripsi:
+"Kacamata premium dengan desain clean dan elegan untuk memberikan sentuhan akhir pada penampilan.",
+
+ukuran:["ONE SIZE"],
+
+warna:["Hitam","Gold","Cokelat"],
+
+stok:10
+
+}
+
+};
+
+
+/* =========================
+   STOK
+========================= */
+
+let stok=
+JSON.parse(
+localStorage.getItem("anggiStok")
 );
 
 
-if (produk) {
+if(!stok){
 
-produk.jumlah++;
+stok={
+baju:10,
+sepatu:10,
+hoodie:10,
+kacamata:10
+};
 
-} else {
+simpanStok();
 
-keranjangData.push({
+}
 
-nama: nama,
 
-harga: harga,
+/* =========================
+   CART
+========================= */
 
-jumlah: 1
+let cart=
+JSON.parse(
+localStorage.getItem("anggiCart")
+)||[];
+
+
+/* =========================
+   DETAIL
+========================= */
+
+let produkAktif=null;
+
+let ukuranDipilih="";
+
+let warnaDipilih="";
+
+
+/* =========================
+   SIMPAN STOK
+========================= */
+
+function simpanStok(){
+
+localStorage.setItem(
+"anggiStok",
+JSON.stringify(stok)
+);
+
+}
+
+
+/* =========================
+   SIMPAN CART
+========================= */
+
+function simpanCart(){
+
+localStorage.setItem(
+"anggiCart",
+JSON.stringify(cart)
+);
+
+}
+
+
+/* =========================
+   FORMAT RUPIAH
+========================= */
+
+function rupiah(angka){
+
+return angka.toLocaleString(
+"id-ID"
+);
+
+}
+
+
+/* =========================
+   TANGGAL
+========================= */
+
+function tanggalOrder(){
+
+let sekarang=
+new Date();
+
+let tahun=
+sekarang.getFullYear();
+
+let bulan=
+String(
+sekarang.getMonth()+1
+).padStart(2,"0");
+
+let tanggal=
+String(
+sekarang.getDate()
+).padStart(2,"0");
+
+return tahun+
+bulan+
+tanggal;
+
+}
+
+
+/* =========================
+   NOMOR ORDER
+========================= */
+
+function buatNomorOrder(){
+
+let tanggal=
+tanggalOrder();
+
+let key=
+"anggiOrder_"+tanggal;
+
+
+let nomor=
+parseInt(
+localStorage.getItem(key)
+)||0;
+
+
+nomor++;
+
+
+localStorage.setItem(
+key,
+nomor
+);
+
+
+return "ANGGI-"+
+tanggal+
+"-"+
+String(nomor).padStart(3,"0");
+
+}
+
+
+/* =========================
+   DETAIL PRODUK
+========================= */
+
+function bukaDetail(key){
+
+produkAktif=key;
+
+ukuranDipilih="";
+
+warnaDipilih="";
+
+
+let p=produk[key];
+
+
+document.getElementById(
+"detailImage"
+).src=p.gambar;
+
+
+document.getElementById(
+"detailCategory"
+).innerText=p.kategori;
+
+
+document.getElementById(
+"detailName"
+).innerText=p.nama;
+
+
+document.getElementById(
+"detailPrice"
+).innerText=
+"Rp"+rupiah(p.harga);
+
+
+document.getElementById(
+"detailDescription"
+).innerText=
+p.deskripsi;
+
+
+document.getElementById(
+"detailStock"
+).innerText=
+stok[key];
+
+
+let ukuranHTML="";
+
+
+p.ukuran.forEach(
+function(u){
+
+ukuranHTML+=`
+
+<button
+class="option"
+onclick="pilihUkuran(this,'${u}')">
+
+${u}
+
+</button>
+
+`;
 
 });
 
-}
 
-
-tampilkanKeranjang();
-
-}
-
-
-/* KURANG PRODUK */
-
-function kurangProduk(nama) {
-
-let produk =
-keranjangData.find(
-item => item.nama === nama
-);
-
-
-if (!produk) return;
-
-
-produk.jumlah--;
-
-
-if (produk.jumlah <= 0) {
-
-keranjangData =
-keranjangData.filter(
-item => item.nama !== nama
-);
-
-}
-
-
-tampilkanKeranjang();
-
-}
-
-
-/* TAMPILKAN KERANJANG */
-
-function tampilkanKeranjang() {
-
-let keranjang =
 document.getElementById(
-"keranjang"
-);
+"ukuranList"
+).innerHTML=
+ukuranHTML;
 
-let totalElement =
+
+let warnaHTML="";
+
+
+p.warna.forEach(
+function(w){
+
+warnaHTML+=`
+
+<button
+class="option"
+onclick="pilihWarna(this,'${w}')">
+
+${w}
+
+</button>
+
+`;
+
+});
+
+
 document.getElementById(
-"total"
+"warnaList"
+).innerHTML=
+warnaHTML;
+
+
+if(
+p.ukuran.length===1
+){
+
+ukuranDipilih=
+p.ukuran[0];
+
+document
+.querySelector(
+"#ukuranList .option"
+)
+.classList
+.add("selected");
+
+}
+
+
+document
+.getElementById(
+"productModal"
+)
+.classList
+.add("active");
+
+}
+
+
+/* =========================
+   TUTUP DETAIL
+========================= */
+
+function tutupDetail(){
+
+document
+.getElementById(
+"productModal"
+)
+.classList
+.remove("active");
+
+}
+
+
+/* =========================
+   PILIH UKURAN
+========================= */
+
+function pilihUkuran(
+button,
+ukuran
+){
+
+ukuranDipilih=
+ukuran;
+
+
+document
+.querySelectorAll(
+"#ukuranList .option"
+)
+.forEach(
+function(btn){
+
+btn.classList.remove(
+"selected"
 );
 
+});
 
-if (keranjangData.length === 0) {
 
-keranjang.innerHTML =
-"Keranjang masih kosong";
+button.classList.add(
+"selected"
+);
 
-totalElement.innerText =
-"Total: Rp0";
+}
+
+
+/* =========================
+   PILIH WARNA
+========================= */
+
+function pilihWarna(
+button,
+warna
+){
+
+warnaDipilih=
+warna;
+
+
+document
+.querySelectorAll(
+"#warnaList .option"
+)
+.forEach(
+function(btn){
+
+btn.classList.remove(
+"selected"
+);
+
+});
+
+
+button.classList.add(
+"selected"
+);
+
+}
+
+
+/* =========================
+   TAMBAH KE CART
+========================= */
+
+function tambahDariDetail(){
+
+if(!produkAktif)
+return;
+
+
+if(stok[produkAktif]<=0){
+
+alert(
+"Produk sudah habis."
+);
 
 return;
 
 }
 
 
-let isi = "";
+if(!ukuranDipilih){
 
-let total = 0;
+alert(
+"Silakan pilih ukuran."
+);
+
+return;
+
+}
 
 
-keranjangData.forEach(
-function(item) {
+if(!warnaDipilih){
+
+alert(
+"Silakan pilih warna."
+);
+
+return;
+
+}
 
 
-isi += `
+let p=
+produk[produkAktif];
 
-<div class="item">
 
-<b>
+let item=
+cart.find(
+x =>
+x.produk===produkAktif &&
+x.ukuran===ukuranDipilih &&
+x.warna===warnaDipilih
+);
+
+
+if(item){
+
+if(
+item.jumlah>=
+stok[produkAktif]
+){
+
+alert(
+"Jumlah sudah mencapai stok."
+);
+
+return;
+
+}
+
+item.jumlah++;
+
+}else{
+
+cart.push({
+
+produk:produkAktif,
+
+nama:p.nama,
+
+harga:p.harga,
+
+ukuran:ukuranDipilih,
+
+warna:warnaDipilih,
+
+jumlah:1
+
+});
+
+}
+
+
+simpanCart();
+
+tampilkanCart();
+
+tutupDetail();
+
+keKeranjang();
+
+}
+
+
+/* =========================
+   TAMPILKAN CART
+========================= */
+
+function tampilkanCart(){
+
+let box=
+document.getElementById(
+"isiKeranjang"
+);
+
+let totalBox=
+document.getElementById(
+"total"
+);
+
+let summary=
+document.getElementById(
+"checkoutSummary"
+);
+
+
+if(cart.length===0){
+
+box.innerHTML=
+"Your bag is empty.";
+
+totalBox.innerText=
+"Total: Rp0";
+
+summary.innerHTML=
+"Belum ada produk.";
+
+return;
+
+}
+
+
+let html="";
+
+let summaryHTML="";
+
+let total=0;
+
+
+cart.forEach(
+function(item,index){
+
+let subtotal=
+item.harga*
+item.jumlah;
+
+
+total+=subtotal;
+
+
+html+=`
+
+<div class="cart-item">
+
+<div>
+
+<div class="cart-name">
 ${item.nama}
-</b>
+</div>
 
-<br>
+<div class="cart-info">
+Ukuran: ${item.ukuran}
+•
+Warna: ${item.warna}
+</div>
 
-Rp${item.harga.toLocaleString("id-ID")}
+<div class="cart-info">
+Rp${rupiah(item.harga)}
+×
+${item.jumlah}
+=
+Rp${rupiah(subtotal)}
+</div>
 
-<div class="jumlah">
+</div>
+
+
+<div class="cart-controls">
 
 <button
-onclick="kurangProduk('${item.nama}')">
-
+onclick="kurangJumlah(${index})">
 −
-
 </button>
-
 
 <span>
-
 ${item.jumlah}
-
 </span>
 
-
 <button
-onclick="tambahProduk(
-'${item.nama}',
-${item.harga}
-)">
-
+onclick="tambahJumlah(${index})">
 +
-
 </button>
+
+<span
+class="remove"
+onclick="hapusItem(${index})">
+HAPUS
+</span>
 
 </div>
 
@@ -1195,215 +2395,74 @@ ${item.harga}
 `;
 
 
-total +=
-item.harga *
-item.jumlah;
+summaryHTML+=`
+
+<div class="summary-row">
+
+<span>
+${item.nama}
+× ${item.jumlah}
+</span>
+
+<span>
+Rp${rupiah(subtotal)}
+</span>
+
+</div>
+
+`;
 
 });
 
 
-keranjang.innerHTML =
-isi;
+box.innerHTML=
+html;
 
 
-totalElement.innerText =
-"Total: Rp" +
-total.toLocaleString(
-"id-ID"
-);
-
-}
+totalBox.innerText=
+"Total: Rp"+
+rupiah(total);
 
 
-/* PENCARIAN */
+summary.innerHTML=
+summaryHTML+
 
-function cariProduk() {
+`
 
-let input =
-document
-.getElementById("search")
-.value
-.toLowerCase();
+<div class="summary-total">
 
+<span>
+TOTAL
+</span>
 
-let produk =
-document.querySelectorAll(
-".produk"
-);
+<span>
+Rp${rupiah(total)}
+</span>
 
+</div>
 
-produk.forEach(
-function(item) {
-
-
-let nama =
-item
-.getAttribute("data-nama")
-.toLowerCase();
-
-
-if (
-nama.includes(input)
-) {
-
-item.style.display =
-"block";
-
-} else {
-
-item.style.display =
-"none";
-
-}
-
-});
+`;
 
 }
 
 
-/* FILTER KATEGORI */
+/* =========================
+   TAMBAH JUMLAH
+========================= */
 
-function filterProduk(kategori) {
+function tambahJumlah(index){
 
-let produk =
-document.querySelectorAll(
-".produk"
-);
-
-
-produk.forEach(
-function(item) {
+let item=
+cart[index];
 
 
-let jenis =
-item.getAttribute(
-"data-kategori"
-);
-
-
-if (
-kategori === "semua" ||
-jenis === kategori
-) {
-
-item.style.display =
-"block";
-
-} else {
-
-item.style.display =
-"none";
-
-}
-
-});
-
-}
-
-
-/* NAVIGASI */
-
-function keBeranda() {
-
-window.scrollTo({
-
-top: 0,
-
-behavior: "smooth"
-
-});
-
-}
-
-
-function keProduk() {
-
-document
-.getElementById(
-"produkContainer"
-)
-.scrollIntoView({
-
-behavior: "smooth"
-
-});
-
-}
-
-
-function keKeranjang() {
-
-document
-.getElementById(
-"keranjangSection"
-)
-.scrollIntoView({
-
-behavior: "smooth"
-
-});
-
-}
-
-
-/* TENTANG */
-
-function bukaTentang() {
-
-document
-.getElementById(
-"modalTentang"
-)
-.style.display =
-"block";
-
-}
-
-
-function tutupTentang() {
-
-document
-.getElementById(
-"modalTentang"
-)
-.style.display =
-"none";
-
-}
-
-
-window.onclick =
-function(event) {
-
-let modal =
-document.getElementById(
-"modalTentang"
-);
-
-
-if (
-event.target === modal
-) {
-
-modal.style.display =
-"none";
-
-}
-
-};
-
-
-/* CHECKOUT */
-
-function checkout() {
-
-
-if (
-keranjangData.length === 0
-) {
+if(
+item.jumlah>=
+stok[item.produk]
+){
 
 alert(
-"Keranjang masih kosong!"
+"Jumlah sudah mencapai stok."
 );
 
 return;
@@ -1411,32 +2470,114 @@ return;
 }
 
 
-let nama =
+item.jumlah++;
+
+simpanCart();
+
+tampilkanCart();
+
+}
+
+
+/* =========================
+   KURANG JUMLAH
+========================= */
+
+function kurangJumlah(index){
+
+cart[index].jumlah--;
+
+
+if(
+cart[index].jumlah<=0
+){
+
+cart.splice(index,1);
+
+}
+
+
+simpanCart();
+
+tampilkanCart();
+
+}
+
+
+/* =========================
+   HAPUS
+========================= */
+
+function hapusItem(index){
+
+cart.splice(index,1);
+
+simpanCart();
+
+tampilkanCart();
+
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function checkout(){
+
+if(cart.length===0){
+
+alert(
+"Shopping Bag masih kosong."
+);
+
+return;
+
+}
+
+
+let nama=
 document
 .getElementById("nama")
-.value;
+.value
+.trim();
 
 
-let telepon =
+let telepon=
 document
 .getElementById("telepon")
-.value;
+.value
+.trim();
 
 
-let alamat =
+let alamat=
 document
 .getElementById("alamat")
-.value;
+.value
+.trim();
 
 
-if (
-nama === "" ||
-telepon === "" ||
-alamat === ""
-) {
+let catatan=
+document
+.getElementById("catatan")
+.value
+.trim();
+
+
+let payment=
+document.querySelector(
+'input[name="payment"]:checked'
+);
+
+
+if(
+nama==="" ||
+telepon==="" ||
+alamat===""
+){
 
 alert(
-"Silakan isi semua data checkout!"
+"Lengkapi data pembeli terlebih dahulu."
 );
 
 return;
@@ -1444,46 +2585,352 @@ return;
 }
 
 
-let total = 0;
+if(!payment){
+
+alert(
+"Silakan pilih metode pembayaran."
+);
+
+return;
+
+}
 
 
-keranjangData.forEach(
-function(item) {
+let metodePembayaran=
+payment.value;
 
-total +=
-item.harga *
+
+/* =========================
+   CEK STOK
+========================= */
+
+for(
+let item of cart
+){
+
+if(
+item.jumlah>
+stok[item.produk]
+){
+
+alert(
+"Stok "+item.nama+
+" tidak mencukupi."
+);
+
+return;
+
+}
+
+}
+
+
+/* =========================
+   BUAT NOMOR ORDER
+========================= */
+
+let nomorOrder=
+buatNomorOrder();
+
+
+let sekarang=
+new Date();
+
+
+let waktu=
+sekarang.toLocaleString(
+"id-ID"
+);
+
+
+/* =========================
+   PESAN WHATSAPP
+========================= */
+
+let pesan=
+`HALO ANGGI STORE 👋
+
+SAYA INGIN MELAKUKAN PEMESANAN
+
+━━━━━━━━━━━━━━━━
+NO. ORDER
+${nomorOrder}
+
+TANGGAL
+${waktu}
+
+━━━━━━━━━━━━━━━━
+
+PRODUK:
+
+`;
+
+
+let total=0;
+
+
+cart.forEach(
+function(item){
+
+let subtotal=
+item.harga*
+item.jumlah;
+
+
+total+=subtotal;
+
+
+pesan+=
+`• ${item.nama}
+  Ukuran: ${item.ukuran}
+  Warna: ${item.warna}
+  Jumlah: ${item.jumlah}
+  Harga: Rp${rupiah(item.harga)}
+  Subtotal: Rp${rupiah(subtotal)}
+
+`;
+
+});
+
+
+pesan+=
+`━━━━━━━━━━━━━━━━
+
+TOTAL:
+Rp${rupiah(total)}
+
+METODE PEMBAYARAN:
+${metodePembayaran}
+
+━━━━━━━━━━━━━━━━
+
+DATA PEMBELI
+
+Nama:
+${nama}
+
+Nomor HP:
+${telepon}
+
+Alamat:
+${alamat}
+
+Catatan:
+${catatan || "-"}
+
+━━━━━━━━━━━━━━━━
+
+NO. ORDER:
+${nomorOrder}
+
+Mohon konfirmasi pesanan saya.
+
+Terima kasih.
+
+ANGGI STORE`;
+
+
+/* =========================
+   KURANGI STOK
+========================= */
+
+cart.forEach(
+function(item){
+
+stok[item.produk]
+-=
 item.jumlah;
 
 });
 
 
-document
-.getElementById(
-"hasilCheckout"
-)
-.innerHTML =
+simpanStok();
 
-"<b>Pesanan berhasil dibuat!</b><br><br>" +
 
-"Nama: " +
-nama +
-"<br>" +
+/* =========================
+   KOSONGKAN CART
+========================= */
 
-"Nomor HP: " +
-telepon +
-"<br>" +
+cart=[];
 
-"Total: Rp" +
-total.toLocaleString(
-"id-ID"
+simpanCart();
+
+tampilkanCart();
+
+
+/* =========================
+   TAMPILKAN NOMOR ORDER
+========================= */
+
+document.getElementById(
+"successOrderNumber"
+).innerText=
+nomorOrder;
+
+
+document.getElementById(
+"orderSuccess"
+).classList.add(
+"active"
+);
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+let url=
+"https://wa.me/"+
+nomorWhatsApp+
+"?text="+
+encodeURIComponent(
+pesan
+);
+
+
+window.open(
+url,
+"_blank"
 );
 
 }
+
+
+/* =========================
+   FILTER PRODUK
+========================= */
+
+function filterProduk(
+kategori
+){
+
+document
+.querySelectorAll(
+".product"
+)
+.forEach(
+function(item){
+
+item.style.display=
+item.dataset.kategori===
+kategori
+?
+"block"
+:
+"none";
+
+});
+
+
+keProduk();
+
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+function keHome(){
+
+document
+.getElementById("home")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   PRODUK
+========================= */
+
+function keProduk(){
+
+document
+.getElementById("produk")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   KERANJANG
+========================= */
+
+function keKeranjang(){
+
+document
+.getElementById("keranjang")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+document
+.getElementById(
+"productModal"
+)
+.addEventListener(
+"click",
+function(e){
+
+if(
+e.target===this
+){
+
+tutupDetail();
+
+}
+
+});
+
+
+/* =========================
+   UPDATE STOK DI LAYAR
+========================= */
+
+function updateStokTampilan(){
+
+Object.keys(stok)
+.forEach(
+function(key){
+
+let element=
+document.getElementById(
+"stock-"+key
+);
+
+if(element){
+
+element.innerText=
+stok[key];
+
+}
+
+});
+
+}
+
+
+/* =========================
+   START WEBSITE
+========================= */
+
+updateStokTampilan();
+
+tampilkanCart();
 
 </script>
 
-
 </body>
-
 </html>
-```
